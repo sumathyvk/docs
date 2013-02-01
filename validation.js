@@ -37,14 +37,13 @@ function zoomDivPhoto(src,width,height)
 	document.getElementById("zoomSrc").src=src;
 	//gray out
 	grayOut(true,{'opacity':'45'});
-	//center popup
-	//centerPopup('zoomDiv',300,22);
-	centerZoomPopup('zoomDiv',300,22,height,width);
+	
+	centerZoomPopup('zoomDivPhoto',450,28,height,width);
 }
 
 function closePhotoZoomDiv()
 {
-	document.getElementById("zoomDiv").style.display ="none";
+	document.getElementById("zoomDivPhoto").style.display ="none";
 	document.getElementById("zoomSrc").src="/images/pixel.gif";
 	grayOut(false);
 }
