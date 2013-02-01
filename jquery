@@ -1,0 +1,55 @@
+// using jquery for open-close functionality
+// set default options for slider,event,options
+
+jQuery.fn.OpenClose = function(_options){
+  // default options
+	var _options = jQuery.extend({
+		activeClass: 'active',
+		opener: '.opener',
+		slider: '.slide',
+		slideSpeed: 400,
+		animStart: false,
+		animEnd: false,
+		event: 'click'
+	}, _options);
+	return this.each(function(){
+		// options
+		var _holder = jQuery(this);
+		var _slideSpeed = _options.slideSpeed;
+		var _activeClass = _options.activeClass;
+		var _opener = jQuery(_options.opener, _holder);
+		var _slider = jQuery(_options.slider, _holder);
+		var _animStart = _options.animStart;
+		var _animEnd = _options.animEnd;
+		var _event = _options.event;
+		if(_slider.length) {
+			_opener.bind(_event,function(){
+				if(!_slider.is(':animated')) {
+					if(typeof _animStart === 'function') _animStart();
+					if(_holder.hasClass(_activeClass)) {
+						_slider.slideUp(_slideSpeed,function(){
+							if(typeof _animEnd === 'function') _animEnd();
+						});
+						_holder.removeClass(_activeClass);
+					} else {
+						_holder.addClass(_activeClass);
+						_slider.slideDown(_slideSpeed,function(){
+							if(typeof _animEnd === 'function') _animEnd();
+						});
+					}
+				}
+				return false;
+			});
+			if(_holder.hasClass(_activeClass)) _slider.show();
+			else _slider.hide();
+		}
+	});
+	
+}
+jQuery('div.text-section').OpenClose({
+		activeClass:'active',
+		opener:'a.opener',
+		slider:'div.slide',
+		slideSpeed: 400
+	});
+}
