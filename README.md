@@ -2,9 +2,9 @@ Personal  HTML,JS,JQUERY,AJAX arquitecture structures, and tricks that I use in 
 
 The structure is:
 
-    /ajax
-    /html
-    /jquery
-    /coldfusion
-    /js
+    - ajax
+    - html
+    - jquery
+    - coldfusion
+    - js
     
