@@ -1,0 +1,45 @@
+
+/* switch  tabs asynchronously using ajax function */
+
+function selectAjaxSwicther(){
+  var switcherName;
+	var holderName;
+	var selectObj = jQuery('a.ajax');
+	var option;
+	
+	selectObj.click(function(){
+		switcherName = jQuery(this).attr('rel');
+		holderName = jQuery(this).attr('target');
+		option = jQuery(this);
+		ajaxSwitch();
+		return false;
+	});
+	
+	function ajaxSwitch(){
+		var switcherObj = option.parents(switcherName);
+		var holderObj = switcherObj.find(holderName);
+		holderObj.css({position: 'relative', height: holderObj.innerHeight()});
+		jQuery("<img class='loader'>").appendTo(holderObj);
+		holderObj.find('img.loader').attr('src', 'images/ajax-loader.gif').css
+		({
+			position: 'absolute',
+			top: '50%',
+			left: '50%',
+			marginTop: -holderObj.find('img.loader').innerHeight() / 2,
+			marginLeft: -holderObj.find('img.loader').innerWidth() / 2
+		});
+		jQuery.ajax({
+			url:option.attr('href'),
+			type:"get",
+			success:function(msg){
+				holderObj.empty();
+				jQuery("<div>").html(msg).appendTo(holderObj);
+				holderObj.css({position: 'static', height: 'auto'});
+				initPlugins();
+			},
+			error:function(){
+				alert("AJAX Error!");
+			}
+		});
+	};
+}
