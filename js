@@ -1,6 +1,5 @@
 
-
-/* Using JQuery for Tabs selection and content changes */
+/* Using JQuery for Tabs selection and Content changes */
 
 
 jQuery(function(){
