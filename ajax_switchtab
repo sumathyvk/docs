@@ -13,8 +13,7 @@ function selectTabAjaxSwicther(){
 		ajaxSwitch();
 		return false;
 	});
-	
-	function ajaxTabSwitch(){
+		function ajaxTabSwitch(){
 		var switcherObj = option.parents(switcherName);
 		var holderObj = switcherObj.find(holderName);
 		holderObj.css({position: 'relative', height: holderObj.innerHeight()});
