@@ -7,7 +7,7 @@ jQuery.fn.OpenClose = function(_options){
 		activeClass: 'active',
 		opener: '.opener',
 		slider: '.slide',
-		slideSpeed: 400,
+		slideSpeed: 800,
 		animStart: false,
 		animEnd: false,
 		event: 'click'
@@ -17,8 +17,6 @@ jQuery.fn.OpenClose = function(_options){
 		var _holder = jQuery(this);
 		var _slideSpeed = _options.slideSpeed;
 		var _activeClass = _options.activeClass;
-		var _opener = jQuery(_options.opener, _holder);
-		var _slider = jQuery(_options.slider, _holder);
 		var _animStart = _options.animStart;
 		var _animEnd = _options.animEnd;
 		var _event = _options.event;
