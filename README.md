@@ -1,4 +1,4 @@
-Personal  HTML,JS,JQUERY,AJAX arquitecture structures, and tricks that I use in my daily development tasks.
+Personal  HTML,JS,JQUERY,AJAX arquitecture structures, and tricks that I used in my daily development/design tasks.
 
 The structure is:
 
