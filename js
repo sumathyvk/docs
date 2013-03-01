@@ -11,13 +11,6 @@ function inithumbsGallery(){
 		var _btnPrev = set.find('a.link-prev-nav');
 		var _btnNext = set.find('a.link-next-nav');
 		
-		var _listPrev = set.find('a.link-prev-small');
-		var _listNext = set.find('a.link-next-small');
-		
-		var _numImg = set.find('.link-pagenator');
-		var _gallery = set.find('.gallery-large');
-		var _thumbsHold = set.find('.gallery-holder').hide();
-		var _pauseButton = set.find('.link-pause-nav');
 		var _flag = true;
 		var _step = false;
 		var _sumWidth = 0;
@@ -49,9 +42,7 @@ function inithumbsGallery(){
 		});
 		var _list = set.find('.thumbnails .mask-list > ul').empty();
 		var _listThumbs = _thumbsHold.find('>ul').empty();
-		var _item = _gallery.find('> ul > li').css({ position: 'absolute', top: 0, left: 0 });
-		_item.click(function(){ return false; });
-
+		
 		_item.find('>a').each(function(i, el){
 			_left = parseInt((jQuery(this).parent().width()-jQuery(this).find('img').width())/2);
 			_top = parseInt((jQuery(this).parent().height()-jQuery(this).find('img').height())/2);
@@ -71,7 +62,6 @@ function inithumbsGallery(){
 			
 			jQuery(this).attr('meta', jQuery(this).attr('title')).removeAttr('title');
 			_list.append('<li><a href="#"><img src="' + jQuery(this).attr('href') + '" alt="swicher image" width="50" height="50" /></a></li>');
-			_listThumbs.append('<li><a href="#"><img src="' + jQuery(this).attr('meta') + '" alt="thumbs image" width="110" height="101" /></a></li>');
 			_sumWidth += _list.children().eq(i).outerWidth(true);
 		});
 
@@ -107,12 +97,10 @@ function inithumbsGallery(){
 			if(_ind != _prev){
 				_item.eq(_prev).fadeOut(_duration);
 				_item.eq(_ind).fadeIn(_duration);
-				// _gallery.find('> ul').animate({ height: _item.eq(_ind).height() }, { queue: false, duration: 250 });
 				_numImg.text('IMAGES ' + (_ind+1) + ' of ' + _list.children().length);
 			}
 			else {
 				_item.hide().eq(_ind).show();
-				// _gallery.find('> ul').css({ width:'100%', height: _item.eq(_ind).height() });
 				_numImg.text('IMAGES ' + (_ind+1) + ' of ' + _list.children().length);
 			}
 			autoSlide();
@@ -169,8 +157,6 @@ function inithumbsGallery(){
 			var _slide = 0;
 			var _curSlideSet = Math.ceil( (i + 1) / _slideEl) ;
 			_slide = _slideEl * (_curSlideSet - 1);
-			if(_slide + _slideEl < _list.children().length) _slide = _slide;
-			else _slide = _list.children().length - _slideEl;
 			if(thumbsLength && _slide + _slideEl != _slideEl){_list.animate({ marginLeft: _offset },{ duration: 250, queue:false });}
 			if(thumbsLength && _ind == 0){_list.animate({ marginLeft: 0 },{ duration: 250, queue:false });}
 		}
