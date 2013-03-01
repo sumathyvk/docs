@@ -4,7 +4,6 @@
 function acceptnumbersonly(e, decimal) {
   var key;
 	var keychar;
-
 	if (window.event) {
 	   key = window.event.keyCode;
 	}
@@ -29,22 +28,22 @@ function acceptnumbersonly(e, decimal) {
 	   return false;
 }
 
-function zoomDivPhoto(src,width,height)
+function zoomDivPhoto(imgsrc,imgwidth,imgheight)
 {
 	document.getElementById("zoomDiv").style.display ="block";
-	document.getElementById("zoomDiv").width=width;
-	document.getElementById("zoomDiv").height=height;
-	document.getElementById("zoomSrc").src=src;
+	document.getElementById("zoomDiv").imgwidth=width;
+	document.getElementById("zoomDiv").imgheight=height;
+	document.getElementById("zoomSrc").imgsrc=src;
 	//gray out
 	grayOut(true,{'opacity':'45'});
 	
-	centerZoomPopup('zoomDivPhoto',450,28,height,width);
+	centerZoomPopup('zoomDivPhoto',450,28,imgheight,imgwidth);
 }
 
 function closePhotoZoomDiv()
 {
 	document.getElementById("zoomDivPhoto").style.display ="none";
-	document.getElementById("zoomSrc").src="/images/pixel.gif";
+	document.getElementById("zoomSrc").imgsrc="/images/pixel.gif";
 	grayOut(false);
 }
 
