@@ -1,5 +1,6 @@
 //using AJAX to switch the tabs
 
+
 function selectTabAjaxSwicther(){
   var switcherName;
 	var holderName;
