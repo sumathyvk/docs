@@ -1,5 +1,6 @@
 /* switch  tabs asynchronously using ajax function */
 
+
 function selectAjaxSwicther(){
   var switcherName;
 	var holderName;
