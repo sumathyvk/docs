@@ -1,5 +1,4 @@
 // using jquery for open-close functionality
-// set default options for slider,event,options
 
 jQuery.fn.OpenClose = function(_options){
   // default options
@@ -44,6 +43,8 @@ jQuery.fn.OpenClose = function(_options){
 	});
 	
 }
+// set default options for slider,event,options
+
 jQuery('div.text-section').OpenClose({
 		activeClass:'active',
 		opener:'a.opener',
