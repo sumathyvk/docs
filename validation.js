@@ -1,5 +1,5 @@
 //validation for numbers only it should accept only number in the field
-//validation for divphoto with grayout functionality
+
 
 function acceptnumbersonly(e, decimal) {
   var key;
@@ -27,6 +27,7 @@ function acceptnumbersonly(e, decimal) {
 	else
 	   return false;
 }
+//validation for divphoto with grayout functionality
 
 function zoomDivPhoto(imgsrc,imgwidth,imgheight)
 {
