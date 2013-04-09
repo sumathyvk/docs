@@ -22,7 +22,7 @@
 				 source: function(req, add){
 				
 					//pass request to server
-					$.getJSON("albums/friends.cfm?callback=?", req, function(data) {
+					$.getJSON("albums/invitefriends.cfm?callback=?", req, function(data) {
 						
 						//create array for response objects
 						var suggestions = [];
