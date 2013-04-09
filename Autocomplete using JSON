@@ -1,0 +1,116 @@
+<!--- Jquery call to populate the autocomplete and add names to the Current Credits List and input form variable for form submission--->
+
+<script type="text/javascript">
+  	$(function(){
+			//loop through the credits list and put them into the form variable once the page loads 
+			$('#creditsList li').each(function(index) {
+				 var li_val = $(this).closest('li').text(); //get the li value 
+				 var li_val_str = li_val.substr(0,li_val.length-6); // extracts only the name 
+				 //add it to the input type
+				 $("#listOfNames").val(function(i, v) {
+						  var arr = v.split(',');
+						  arr.push(jQuery.trim(li_val_str));
+						  return arr.join(',');
+						});
+			
+			}); 
+			//alert("original values in the list"+$("#listOfNames").val());
+			//attach autocomplete
+			$("#member-name").autocomplete({
+				
+				//define callback to format results
+				 source: function(req, add){
+				
+					//pass request to server
+					$.getJSON("albums/friends.cfm?callback=?", req, function(data) {
+						
+						//create array for response objects
+						var suggestions = [];
+						
+						//process response
+						$.each(data, function(i, val){	
+							//suggestions.push(val.name);
+							suggestions.push(val.username);
+						});
+						
+						//pass array to callback
+						add(suggestions);
+					}); 
+					
+				 },
+				
+				//define select handler
+				select: function(e, ui) {
+					var flag_same =0;
+					
+					//loop through the ul/li to check if name already exists
+					$('#creditsList li').each(function(index) {
+					    
+					    var comp_val = $(this).closest('li').text();
+						var comp_val_str = comp_val.substr(0,comp_val.length-6);
+					    str1 = jQuery.trim(comp_val_str);
+					    str2 = jQuery.trim(ui.item.value);
+					    if(str1 == str2)
+					    {
+						flag_same =1;
+					    }
+					  });
+
+					if(flag_same == 0)//only unique name gets added to the credits List and input type
+					{
+						 var div = document.getElementById("dataTable");
+						 var element1 = document.createElement("li");
+				     var element2 = document.getElementById("creditsList");
+				     element2.appendChild(element1);
+					     var txt1=document.createTextNode(jQuery.trim(ui.item.value));
+				     element1.appendChild(txt1);
+					     var a1=document.createElement('a');
+				     <!--- a1.setAttribute('href','##'); --->
+				     a1.setAttribute('style','cursor:pointer');
+					     a1.setAttribute('id','itemDelete');
+					     element1.appendChild(a1);
+				     var txt1=document.createTextNode('remove');
+					     a1.appendChild(txt1);
+					     //alert("before adding"+$("#listOfNames").val());
+					     //add to input type (form parameter)list
+					     $("#listOfNames").val(function(i, v) {
+						  var arr = v.split(',');
+						  arr.push(jQuery.trim(ui.item.value));
+						  return arr.join(',');
+						});
+					}
+				      //alert("added"+$("#listOfNames").val());
+				}
+				
+			});
+			
+			//add click handler to friends div
+			$("#friends").click(function(){
+				
+				//focus 'to' field
+				$("#member-name").focus();
+			});
+			
+							
+			// on click of remove ,remove that li element
+			$('#itemDelete').live("click",function() {
+				
+				var rem_val = $(this).closest('li').text();
+				var rem_val_str = rem_val.substr(0,rem_val.length-6);
+				
+				//remove from the input type (form parameter)list
+				     $("#listOfNames").val(function(i, v) {
+					  return $.grep(v.split(','), function(value) {  
+						   return value != jQuery.trim(rem_val_str);  
+						 }).join(',');
+					});
+			   
+		   
+		   //alert("removed.."+$("#listOfNames").val());
+		   $(this).closest('li').remove();
+
+		});
+		
+	});
+	
+</script> 
