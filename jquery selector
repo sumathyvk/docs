@@ -1,0 +1,53 @@
+// JQuery function to open and close div and radio and checkbox selection
+
+jQuery(function(){
+  OpenCloseForms();
+	
+});
+
+function OpenCloseForms(){
+	var holder = jQuery('.form-category-list');
+	var parent = jQuery('li', holder);
+	var activeClass = 'active';
+	var speed = 500;
+	
+	parent.each(function(){
+		var _this = jQuery(this);
+		var opener = jQuery('>.opener', _this);
+		var inputs = jQuery('.opener input:radio, .opener input:checkbox', _this);
+		var slider = jQuery('>div.subcategory', _this);
+		
+		opener.click(checkOptions);
+		inputs.focus(checkOptions);
+		
+		function checkOptions(){
+			if(!slider.is(':animated')){
+				_this.each(function(){
+					var _this = jQuery(this);
+					var opener = jQuery('>.opener', _this);
+					var inputs = jQuery('.opener input:radio, .opener input:checkbox', _this);
+					var slider = jQuery('>div.subcategory', _this);
+					
+					if(inputs.is(':checked')){
+						slider.slideDown(speed);
+						if(!inputs.attr('type') == 'radio'){
+							inputs.attr('checked', 'checked');
+						}
+						_this.addClass(activeClass);
+					}else{
+						slider.slideUp(speed);
+						if(!inputs.attr('type') == 'radio'){
+							inputs.removeAttr('checked');
+						}
+						_this.removeClass(activeClass);
+					}
+				});
+			}
+		}
+		
+		if(inputs.attr('checked') == true){_this.addClass(activeClass);}else{_this.removeClass(activeClass);}
+		if(!_this.hasClass(activeClass)){slider.hide();}else{slider.show();}
+	});
+}
+
+
