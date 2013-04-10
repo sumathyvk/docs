@@ -1,4 +1,4 @@
-// using jquery for open-close functionality
+// using jquery for open-close slider functionality
 
 jQuery.fn.OpenClose = function(_options){
   // default options
