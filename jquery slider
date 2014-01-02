@@ -41,7 +41,6 @@ jQuery.fn.OpenClose = function(_options){
 			else _slider.hide();
 		}
 	});
-	
 }
 // set default options for slider,event,options
 
