@@ -4,7 +4,6 @@ jQuery(function(){
   OpenCloseForms();
 	
 });
-
 function OpenCloseForms(){
 	var holder = jQuery('.form-category-list');
 	var parent = jQuery('li', holder);
