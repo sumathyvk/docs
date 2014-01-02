@@ -14,7 +14,6 @@
 						});
 			
 			}); 
-			//alert("original values in the list"+$("#listOfNames").val());
 			//attach autocomplete
 			$("#member-name").autocomplete({
 				
@@ -106,7 +105,6 @@
 					});
 			   
 		   
-		   //alert("removed.."+$("#listOfNames").val());
 		   $(this).closest('li').remove();
 
 		});
