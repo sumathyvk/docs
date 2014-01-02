@@ -21,7 +21,6 @@ function validateZipcode(field,type) {
 	return error;
 }
 
-
 /*  This method is used to validate the phone no  */
 
 function validatePhone(fld,type) {
