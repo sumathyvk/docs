@@ -44,7 +44,7 @@ function AjaxSwicther(){
 				initPlugins();
 			},
 			error:function(){
-				alert("AJAX Error!");
+				alert("AJAX Service fails.Please try again.!");
 			}
 		});
 	};
