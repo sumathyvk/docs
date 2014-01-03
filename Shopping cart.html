@@ -10,115 +10,300 @@
 	
 </HEAD>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-	<div class="wrapper">
-		<img src="images/store.gif" align="left" style="margin:10px 0 0 0;" />
-		<img src="images/question.gif" align="right" style="margin:10px 0 0 0;" />
-		<!-- separator -->
-		<div style="float:left;width:745px;border:0px solid #000;padding:0 0 0 2px;">
-			<hr>
-		</div>
-		<img src="images/home.gif" align="left" style="margin:0px 0 0 10px;" /> 
-		<div class="cartdiv">Cart</div>
-		<div id="applestore">
-		<!-- first row starts -->
-		<div class="firstdiv">
-			<div class="itemheader">
-				Items in your cart
+	<!-- Header-Utilitytab-container ends-->
+	<div id="checkoutheader-container">
+		<h1 id="checkoutlogo">KOHL'S <span class="logo2">Checkout</span></h1>
+		<div class="clear"></div>
+		  <div class="tabs">
+		  <!-- tabs -->
+		  <ul class="tabNavigation">
+		    <li><a href="#checkoutshipinfo"><span class="bluebgcircle">1</span> Shipping Information</a></li>
+		    <li><a href="#checkoutpayinfo"><span class="bluebgcircle">2</span> Payment Information</a></li>
+		    <li><a href="#checkoutreview"><span class="bluebgcircle">3</span> Review & Place Order</a></li>
+		  </ul>
+		  <!-- tab containers -->
+		  <div id="checkoutshipinfo">
+		    <div id="shopping_Bag_Lpanel">
+			<form method="post" id="shipping_billing_form" action="#" class="mleft4">
+			<h1 class="fleft"><span class="bbold">Shipping</span> Address <span class="graybgcircle">?</span></h1>
+			<div class="fright">
+			 <input type="button" class="shiptoadrsbtn" value="Ship to Multiple Addresses"/>
 			</div>
-			<img src="images/button.gif" align="right" style="margin:10px 0 0 0;" />
-			<div class="firstline">
-				<hr>
-			</div>
-		</div><!-- first row ends -->
-		<!-- second row starts -->
-		<div class="seconddiv">
-			<div class="ipaddiv">
-				<img src="images/ipad.gif" style="margin:30px 0 0 40px;" />
-			</div>
-			<div class="secondrightdiv">
-				<div style="float:left;"><h4>iPad mini with Wi-Fi 64 GB - White & Silver</h4></div>
-				<div class="firstpricediv"> $529.00 
-					<input class="" type="number" maxlength="3" length="1" value="1">
-					&nbsp;&nbsp;&nbsp;<strong>$529.00</strong>
+			<p class="clear"><i>All fields are required unless marked optional.</i></p>
+			
+			<fieldset id="shipping_fields" class="mtop10">
+				<div class="fleft mright10">
+				<input type="radio" name="Shipping_To" value="US" id="shipping_us" checked="checked" class="required" />
+				<label for="shipping_us" class="fright">United States</label>
 				</div>
-				<div style="float:left;width:500px;border:0px solid #000;padding:0 0 0 2px;">
-				<hr>
-			</div>
-			<div style="float:left;width:500px;border:0px solid #000;padding:0 0 0 0px;">
-				<span style="border:0px solid #000;padding:5px 0 0 0;height:30px;">
-					<input class="radio" type="radio" value="F" name="gender" style="padding:3px 0 0 0;">
-				</span>
-				<span style="border:0px solid #000;margin:0 0 0px 0;height:30px;">Ship: Available to ship: 1- 3		business days</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0287CD;">Remove &nbsp;&nbsp;&nbsp;
-					<img src="images/devider2.gif" style="margin:0px 0 0 0;" />&nbsp;&nbsp;&nbsp;Save</span><br><br>
-				<span style="border:0px solid #000;padding:5px 0 0 0;height:30px;">
-					<input class="radio" type="radio" value="F" name="gender" style="padding:3px 0 0 0;">
-				</span>
-				<span style="border:0px solid #000;margin:0 0 0px 0;height:30px;">Pick up:</span> 
-				<span style="color:#0287CD;">Select an Apple Store</span>&nbsp;&nbsp;&nbsp;</span><br><br>
-				<span style="border:0px solid #000;padding:0 0 0px 15px;height:30px;color:#AAAAAA;">Part number: MD533LL/A</span><br><br>
-				<span style="border:0px solid #000;padding:0 0 0px 25px;"><strong>Engraving</strong> &nbsp;&nbsp;&nbsp;</span>
-				<img src="images/devider2.gif" style="margin:0px 0 0 0;" />&nbsp;&nbsp;&nbsp;
-				<span style="color:#0287CD;">Add</span><br><br>
-				<div style="float:left;width:500px;border:0px solid #000;padding:0 0 0 0px;">
-					<img src="images/box.gif" style="padding:4px 0 0 0;" align="left" />
-					<div style="color:#0287CD;float:left;padding:2px 0 0 4px;">Add Apple Gift package for	$5.00&nbsp;&nbsp;&nbsp;
+				
+				<div class="fleft">
+				<input type="radio" name="Shipping_To" value="APO" id="shipping_apo" class="required"/>
+				<label for="shipping_apo" class="fright">APO / FPO / DPO</label>
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="row">
+					<div class="fleft mright20">
+						<label for="shipping_first_name">First Name</label>
+						<div class="clear"></div>
+						<input type="text" class="required" id="shipping_first_name" name="shipping_first_name" size="36" /> 
+					<!-- Start - Error Validation - SS -->
+						<div class="clear"></div>
+						<div class="error-inline ">Enter information</div>
+					<!-- End - Error Validation - SS -->
 					</div>
-					<img src="images/devider2.gif" style="padding:4px 0 0 0;" align="left" />
-					<img src="images/email.gif" style="padding:4px 0 0 0;" align="left" />
-				<div style="color:#0287CD;float:left;padding:3px 0 0 0;">&nbsp;&nbsp;&nbsp;&nbsp;Add Free Gift   message&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-				</div>
-			</div>
-		</div>
-		<!-- second row ends -->
-		<!-- separator -->
-		<div style="float:left;width:660px;border:0px solid #000;padding:0 0 0 20px;">
-			<hr>
-		</div>
-		<!-- third row starts -->
-		<div style="float:left;width:700px;border:0px solid #000;background-color:#F2F2F2;">
-			<div style="float:left;width:350px;border:0px solid #000;padding:0px 0 0 10px;">
-				<h4>Estimate tax and delivery dates</h4>
-				 <div style="border:0px solid #000;padding:0 0 0px 0;">
-				 Ship To:
-					<input class="" type="number" maxlength="5" length="5" value="Zip Code" style="width:60px;height:20px;margin:4px 0 0 0;">
-					&nbsp;&nbsp;&nbsp;</div><br>
-					<div style="border:0px solid #000;margin:0 0 0 0;"><input id="" class="check" type="checkbox" value="" name="color">This is a business address
-					<img src="images/help.gif" style="padding:0px 150px 0 0;" align="right" />
+					  
+					<div class="fleft">
+						<label for="shipping_last_name">Last Name</label>
+						<div class="clear"></div>
+						<input type="text" class="required" id="shipping_last_name" name="shipping_last_name" size="36" />           
+					<!-- Start - Error Validation - SS -->
+						<div class="clear"></div>
+						<div class="error-inline ">Enter information</div>
+					<!-- End - Error Validation - SS -->
 					</div>
-					<br>
-					<span style="color:#0287CD;"><strong>Get delivery dates</strong></span>
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="row">
+				<label for="shipping_address1">Address 1</label>
+				<div class="clear"></div>
+		        <input type="text" class="required" id="shipping_address1" name="shipping_address1" value="Street address, P.O box" size="78" />           
+				<!-- Start - Error Validation - SS -->
+					<div class="clear"></div>
+					<div class="error-inline ">Enter information</div>
+				<!-- End - Error Validation - SS -->
+		        </div>
+				
+		        <div class="clear"></div>
+				
+		        <div class="row">
+				<label for="shipping_address2">Address 2 (optional)</label>
+				<div class="clear"></div>
+		        <input type="text" class="ignore" id="shipping_address2" name="shipping_address2" value="Apartment, suite, unit, building, floor" size="78" />  
+		        </div>
+				
+				<div class="clear"></div>
+				
+				<div class="row">
+				<div class="fleft mright20">
+				<label for="shipping_city">City</label>
+				<div class="clear"></div>
+		        <input type="text" class="required" id="shipping_city" name="shipping_city" size="28" />       
+				<!-- Start - Error Validation - SS -->
+					<div class="clear"></div>
+					<div class="error-inline ">Enter information</div>
+				<!-- End - Error Validation - SS -->
+		
+		        </div>
+		          
+		        <div class="fleft mright20">
+				<label for="shipping_state">State</label>
+				<div class="clear"></div>
+		        <select class="width155 required">
+				 <option value="">Select State</option>
+				 <option value="CA">California</option>
+				 <option value="NY">New York</option>
+				 <option value="OH">Ohio</option>
+				</select>        
+				<!-- Start - Error Validation - SS -->
+				<div class="clear"></div>
+				<div class="error-inline ">Select an option</div>
+				<!-- End - Error Validation - SS -->
+		        </div>
+				
+				<div class="fleft">
+				<label for="shipping_zipcode">Zip Code</label>
+				<div class="clear"></div>
+		        <input type="text" class="required" id="shipping_zipcode" name="shipping_zipcode" value="5 or 9 digits" size="15" />           
+				<!-- Start - Error Validation - SS -->
+					<div class="clear"></div>
+					<div class="error-inline ">Enter information</div>
+				<!-- End - Error Validation - SS -->
+		        </div>
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="row">
+		        <div class="fleft mright20">
+				<label for="shipping_phn_no">Phone Number</label>
+				<div class="clear"></div>
+		        <input type="text" class="required" id="shipping_phn_no" name="shipping_phn_no" value="Area Code and Number" size="28" />     
+				<!-- Start - Error Validation - SS -->
+					<div class="clear"></div>
+					<div class="error-inline ">Enter information</div>
+				<!-- End - Error Validation - SS -->
+		              </div>
+		               <div id="county" class="fleft mright20 display-none">
+				<label for="shipping_phn_no">County</label>
+				<div class="clear"></div>
+		        <input type="text" class="required" id="shipping_county" name="shipping_county" value="County Name" size="28" />     
+				<!-- Start - Error Validation - SS -->
+					<div class="clear"></div>
+					<div class="error-inline ">Enter information</div>
+				<!-- End - Error Validation - SS -->
+		              </div>
+		        </div>
+				<p class="clear">We may need to contact you at this number for shipping related questions.</p>
+				
+				<div class="clear mtop10">
+				<input type="checkbox" class="fleft mright10 required" id="shipbill_address_same" />
+				<label for="shipbill_address_same">My Shipping and Billing Addresses are the same.</label>
+				</div>
+		    </fieldset>
+			
+			<hr/>
+			
+			<h1 class="fleft mtop10">Select a Shipping</h1>
+			<div class="clear"></div>
+			<p class="mtop5">Orders placed after 1pm (Central Time) will be processed the next day.<br/>
+			We may need to divide your order into two or more shipments. Shipping charges will not be affected by this.</p>
+			<div class="mtop20" id="item_ship_info">
+			<div>
+			<div class="fleft width350"><h3>Item &amp; Shipping Information</h3></div>
+			<div class="fleft quantity"><h3>Quantity</h3></div>
+			<div class="fleft itemtotal"><h3>Item Total</h3></div>
+			<div class="clear"></div>
+			</div>	
+			<hr/>	
+			<div class="mtop10 fleft">
+			<div class="fleft width350">
+			<div class="item-thumb fleft"><img width="50" height="50" src="images/964679.jpg" /></div>
+			<div class="fleft width265">
+			<div class="bluefont">SONOMA life + style Braided Flip-Flops - Men</div>
+			<p>Color : Barley Brow, Size : 12</p>
+			<p>sku #12345678</p>
+			<p><span class="salefont bbold">sale $19.99</span> regular $30.00</p>
+			<p class=""><i>SHOES15 - 15% Off Shoes <a>details</a></i></p>
+			<div class="mtop5">
+			<label>Shipping Method</label>
+			<select class="width265" id="select_ship_method">
+			 <option value="">Select Shipping Method</option>
+		     <option value="" selected="selected">Standard (Wed, 3/14 - Fri, 3/16)</option>
+		     <option value=""></option>
+		     <option value=""></option>
+			</select>
+			<div id="ship_restricted">
+			Item can only be shipped Standard (Wed, 3/14 - Fri, 3/16)
 			</div>
-			<div style="float:right;width:320px;border:0px solid #000;padding:20px 0 0 0px;">
-				<div style="float:left;width:130px;border:0px solid #000;padding:0 0 0 20px;">
-					Cart Subtotal
-				</div>
-				<div style="float:right;width:130px;border:0px solid #000;padding:0 0 0 20px;">
-					$529.00 
-				</div><br><br>
-				<div style="float:left;width:130px;border:0px solid #000;padding:0 0 0 20px;color:#FC2424;">
-					Free Shipping
-				</div>
-				<div style="float:right;width:130px;border:0px solid #000;padding:0 0 0 40px;color:#FC2424;">
-					$0.00 
-				</div>
-				<div style="float:left;width:290px;border:0px solid #000;padding:0 0 0 20px;">
-					<hr>
-				</div><br>
-				<div style="float:left;width:130px;border:0px solid #000;padding:0 0 0 20px;">
-					<strong>Order Total</strong>
-				</div>
-				<div style="float:right;width:130px;border:0px solid #000;padding:0 0 0 20px;">
-					<strong>$529.00 </strong>
-				</div>
+			<div id="cannot_ship">
+			<span class="fleft mright5"><img alt="Error" src="images/error-icon.png" class="errorImg" /></span> 
+			This item can only be shipped to continental US adresses. Edit the address or save this item for later.
 			</div>
+			</div>
+			</div>	
+			</div>
+			
+			<div class="fleft quantity">
+			<select name="ship_bill_quantity" class="width50">
+			 <option value="" selected="selected">1</option>
+		     <option value="">2</option>
+		     <option value="">3</option>
+		     <option value="">4</option>
+			</select>
+			</div>
+			
+			<div class="fleft itemtotal">
+			<div class="salefont bbold">$19.99</div>
+			<p class="mtop20"><a>Edit Item</a></p>
+			<p><a>Save for Later</a></p>
+			<p><a>Remove</a></p>
+			</div>	
+			</div>
+			<div class="clear"></div>	
+			</div>
+			<hr class="mtop20"/>
+			
+			<h1>Gift Options</h1>
+			<div class="fleft mtop10">
+			<input type="checkbox" class="fleft mright10" id="view_gift_options" />
+			<label for="view_gift_options">View Gift Options </label>
+			</div>
+			<div class="clear"></div>
+			<div class="mleft230 fleft mtop20 display-none" id="continue_giftpage">
+			<input type="submit" value="Continue to Gift Options" class="fleft csimodalBtn">
+			</div>
+			<div class="mleft230 fleft mtop20" id="continue_paymentpage">
+			<input type="submit" value="Continue to Payment" class="fleft csimodalBtn">
+			</div>
+			</form>
+			
+			</div>
+			<div class="fleft mleft4"><img class="floatleft" src="images/divider.gif" alt="Divider" /></div>
+			
+			<div id="shopping_Bag_Rpanel">
+			<div id="ship_order_summary">
+			<h2>Order Summary</h2>
+			
+			<div class="clearfix">
+			<label for="subtotal">Subtotal</label>
+			<div id="subtotal">$1,504.98</div>
+			</div>
+			
+			<div class="clearfix">
+			<label style="width: 140px;"><a> Discounts</a></label>
+			<div class="fleft"><input type="button" value="Apply" class="shiptoadrsbtn" /></div>
+			</div>
+			
+			<div class="clearfix">
+			<label for="shipcharges"><a>Shipping</a> <i>$34.44 away from Free Shipping</i></label>
+			<div id="shipcharges">$5.95</div>
+			</div>
+			
+			<div class="clearfix">
+			<label for="surcharges"><a>Surcharges, Gifts &amp; Tax</a></label>
+			<div id="surcharges">$754.48</div>
+			</div>
+			
+			<div class="clearfix">
+			<label for="totalcharges"><h2>Total</h2></label>
+			<div id="totalcharges"><h2>$1,432.46</h2></div>
+			</div>
+			
+			</div>
+			
+			<div id="earnings">
+			<h2>Your Earnings</h2>
+			<div class="clearfix mtop10"></div>
+			<!--  <div>
+			<label for="cash_earned">Kohl's Cash</label>
+			<div id="cash_earned">$10.00 earned</div>
+			<div class="clear"><i>$34.44 away from next $10 Kohl's Cash</i></div>
+			</div>-->
+			
+			<!--  <div class="clearfix mtop10">
+			<label for="rewards_earned">Kohl's Rewards</label>	
+			<div id="rewards_earned">125 points earned</div>
+			<div class="clear"><i>105 points away from next Reward</i></div>
+			</div>-->
+			
+			<div class="clearfix">
+			<label for="your_savings"><h2>Your Savings</h2></label>
+			<div id="your_savings"><h2>$20.00</h2></div>
+			</div>	
+			
+			</div>
+			
+			
+			</div>
+		
+		  </div>
+		  
+		  <div id="checkoutpayinfo">
+		    Payment Information Description
+		  </div>
+		  
+		  <div id="checkoutreview">
+		    Review & Place Order Description
+		  </div>
+		
 		</div>
-		<!-- third row ends -->
+		
 		</div>
-	</div>
-	<!-- Recommendation div starts -->
-	<div style="float:left;border:0px solid #000;margin:10px 0px 0px 25px;background-color:#BCBCBE;" class="itemheader">
-		Recommended for You
-	</div><!-- Recommendation div ends -->
+		<!-- #header-container -->
 </BODY>
 </HTML>
