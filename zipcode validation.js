@@ -1,5 +1,4 @@
 /* Validate Zip code Format 5 Digits +4 zip code  */
-
 function validateZipcode(field,type) {
   var valid = "0123456789-";
 	var hyphencount = 0;
