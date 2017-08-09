@@ -1,4 +1,5 @@
 //validation for numbers only it should accept only number in the field
+
 function acceptnumbersonly(e, decimal) {
   var key;
 	var keychar;
