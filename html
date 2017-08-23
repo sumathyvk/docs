@@ -1,74 +1,179 @@
-<!DOCTYPE html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<HEAD>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen"/><![endif]-->
-        <link rel="stylesheet" type="text/css" href="css/sample.css" media="screen"/>
-        <TITLE>Sample Shopping Cart Page</TITLE>
-        <META NAME="KEYWORDS" CONTENT="Sample">
-        <META NAME="DESCRIPTION" CONTENT="Shopping Cart">
-        
-</HEAD>
-<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-        <div class="wrapper">
-		<form class="information-form" action="">
-			<div class="color-list-holder-wrapper">
-			  	<ul>
-					<li>
-						<input id="beige" type="checkbox" />
-						<img src="images/beige.gif" width="12" height="12" alt="image description" />
-						<label for="beige">Beige</label>
-					</li>
-					<li>
-						<input id="black" type="checkbox" />
-						<img src="images/black.gif" width="12" height="12" alt="image description" />
-						<label for="black">Black</label>
-					</li>
-					<li>
-						<input id="blue" type="checkbox" />
-						<img src="images/blue.gif" width="12" height="12" alt="image description" />
-						<label for="blue">Blue</label>
-					</li>		
-					<li>
-						<input id="red" type="checkbox" />
-						<img src="images/red.gif" width="12" height="12" alt="image description" />
-						<label for="red">Red</label>
-					</li>
-					<li>
-						<input id="silver" type="checkbox" />
-						<img src="images/silver.gif" width="12" height="12" alt="image description" />
-						<label for="silver">Silver</label>
-					</li>
-					</ul>
-					<ul>
-						<li>
-							<input id="yellow" type="checkbox" />
-							<img src="images/yellow.gif" width="12" height="12" alt="image description" />
-							<label for="yellow">Yellow</label>
-						</li>
-						<li>
-							<input id="gray" type="checkbox" />
-							<img src="images/img17.gif" width="12" height="12" alt="image description" />
-							<label for="gray">Gray</label>
-						</li>
-						
-						<li>
-							<input id="white" type="checkbox" />
-							<img src="images/img21.gif" width="12" height="12" alt="image description" />
-							<label for="white">White</label>
-						</li>
-						<li>
-							<input id="black2" type="checkbox" />
-							<img src="images/img9.gif" width="12" height="12" alt="image description" />
-							<label for="black2">Black</label>
-						</li>
-					</ul>
-				</div>
-				<div class="form-holder">
-					<input type="submit" value="apply filters" />
-					<input type="reset" value="cancel" />
-				</div>
-			</form>
-		 </div><!-- wrapper div ends -->
-	</BODY>
-</HTML>
+<head>
+<%
+	C2BAssortment c2bAsst = null;
+	// TODO : code needs to be optimized, need responsive page to accomodate mobile view
+	// TODO :  missing inc_header_content_section.jsp
+	if(C2BMobileUtil.isMobileBrowser(htmlContext)) {
+%>
+		<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=9">
+		    <title>Publications</title>
+		    <!-- FILE: responsive_landing/responsive_pub_landing.jsp -->
+		</head>
+		<%@ include file="/include/endeca/inc_endeca_global.jsp" %>
+<%
+			String strDimIDForLandingPage = "0";
+			if (dnaFormData.getLong("Publications_ID") != null)
+				strDimIDForLandingPage = dnaFormData.getLong("Publications_ID").toString();
+%>
+		<jsp:include page="/mobile/include/inc_mobile_landing_default_body_skeleton.jsp" flush="true">
+			<jsp:param name="NValueIndicator_ForLandingPage" value="<%= strDimIDForLandingPage %>" />
+			<jsp:param name="LandingPageIndicator" value="Publication" />
+		</jsp:include>
+<%
+	}else {
+		String landingPageAssrtName  = C2BConstants.C2B_RESPONSIVE_PUB_LANDING_PAGE;
+		Assortment responsiveLandingPageAssortment = HTMLAssortmentUtil.getAssortmentByName(landingPageAssrtName);
+		c2bAsst	= new C2BAssortment(responsiveLandingPageAssortment);
+%>
+		<%@ include file="/include/inc_header_content_section.jsp" %>		
+		<!-- FILE: responsive_landing/responsive_pub_landing.jsp -->
+		
+		<link href="//fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="/media/styles/goshawk/calendar/bootstrap.css" />	        
+	    <!-- Owl carousel styles -->
+       	<link rel="stylesheet" href="/media/styles/goshawk/owl.carousel.css">
+       	<!-- new styles added -->
+		<link rel="stylesheet" type="text/css" href="/media/styles/goshawk/aicpa-store-global.css" />
+		<link rel="stylesheet" type="text/css" href="/media/styles/goshawk/jquery.bxslider.css" />
+		<link rel="stylesheet" type="text/css" href="/media/styles/goshawk/vertical-tabs.css" />
+		<link rel="stylesheet" type="text/css" href="/media/styles/goshawk/responsive-menu.css" />
+		<link rel="stylesheet" type="text/css" href="/media/styles/goshawk/megamenu.css" />
+		<link rel="stylesheet" type="text/css" href="/media/styles/goshawk/style_update.css" />
+		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="/media/styles/goshawk/landingpage_styles.css" />
+		<link rel="stylesheet" type="text/css" href="/media/styles/goshawk/quickview_styles.css" />
+	  	<!-- new scripts added -->
+		  <script type="text/javascript" src="/media/scripts/goshawk/jquery.min.js"></script>
+		  <script type="text/javascript" src="/media/scripts/goshawk/bootstrap.min.js"></script>
+		  
+		  <script type="text/javascript">var $=jQuery.noConflict();</script>
+          <!-- Owl carousel scripts -->
+		  <script type="text/javascript" src="/media/scripts/goshawk/jquery.matchHeight.min.js"></script>
+		  <script type="text/javascript" src="/media/scripts/goshawk/owl.carousel.min.js" defer></script>
+			<script type="text/javascript" src="/media/scripts/goshawk/jquery.main.extend.js" defer></script>
+			<script type="text/javascript" src="/media/scripts/goshawk/jquery.matchHeight.min.js"></script>
+			<!--<script type="text/javascript" src="/media/scripts/goshawk/scripts.js"></script>
+	          <script type="text/javascript" src="/media/scripts/goshawk/unslider.js"></script>
+	        <script type="text/javascript" src="/media/scripts/goshawk/jquery.bxslider.js"></script>-->
+		<script type="text/javascript" src="/media/scripts/goshawk/turbotabs.min.js"></script>
+		<script type="text/javascript" src="/media/scripts/goshawk/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/media/scripts/goshawk/megamenu.js"></script>
+		<script type="text/javascript" src="/media/scripts/goshawk/jssor.js"></script>
+		<script type="text/javascript" src="/media/scripts/goshawk/jssor.slider.js"></script>
+		<script type="text/javascript" src="/media/scripts/goshawk/easy-responsive-tabs.js"></script>
+		<script type="text/javascript" src="/media/scripts/goshawk/aicpa-store-global.js"></script>
+		<script type="text/javascript" src="/media/scripts/goshawk/calendar/jquery.expander.js"></script>
+		<script type="text/javascript" src="/media/scripts/responsive_landing_coremetrics_io_zpfs.js"></script>
+	  
+		<script type="application/x-javascript">
+		    addEventListener("load", function () {
+		      setTimeout(hideURLbar, 0);
+		    }, false);
+		    function hideURLbar() {
+		<!--      window.scrollTo(0, 1); -->
+		    }
+		    $(document).ready(function () {
+		      $(".megamenu").megamenu();
+		      $('#browse-all-vertical').easyResponsiveTabs({
+					type: 'vertical',
+					width: 'auto',
+					fit: true
+					});
+		    });
+		  </script>
+		  
+		 
+		</head>		
+		<body>
+		<%@ include file="/include/inc_gtm.jsp" %>
+		<main>
+<%
+			String carouselDivId = "new-bestselling";
+			String carouselBxslider = "new-bestselling owl-carousel";
+			String carouselSliderDivId = "owl-wrapper";	
+			String bxsliderDivId = "landing_pub_carousel";
+			String carouselNext = "slider-next2";
+			String carouselPrev = "slider-prev2";
+			String strDimIDForLandingPage = "0";
+			Long lPubEndecaId = dnaFormData.getLong(C2BConstants.C2B_PUB_ENDECA_ID_NAME);
+			if(lPubEndecaId != null) {
+				strDimIDForLandingPage = lPubEndecaId.toString();
+			}
+	%>
+			<%@ include file="/responsiveinclude/inc_landing_bodyskeleton.jsp" %>
+			<!--  <script type="text/javascript">
+			$('.bxslider-land-bestselling').bxSlider({
+			    slideWidth: 290,
+			    minSlides: 4,
+			    maxSlides: 4,
+			    slideMargin: 0,
+			    pager: false,
+			    hideControlOnEnd:false,
+			    responsive:true,
+			    infiniteLoop:true,
+			    nextSelector: '#slider-next2',
+			    prevSelector: '#slider-prev2',
+			    nextText: '<img src="/media/images/arrow_right_active_carousel.png">',
+			    prevText: '<img src="/media/images/arrow_left_active_carousel.png">',
+			    touchEnabled: true
+			});
+			$('.bx-loading').remove();
+			</script>-->
+			</main>
+			<%@ include file="/responsiveinclude/inc_analytical_tags_end.jsp" %>
+			
+<script type="text/javascript" src="/media/scripts/responsive_ajaxutil.js"></script>
+<script type="text/javascript">
+function addEventHandler(node, eventName, handler, capturing, useAttachEvent)
+{
+    // TODO: Enforce arguments.
+    if(node != null)
+    {
+	    if(window.addEventListener)
+	    {
+	        node.addEventListener(eventName, handler, capturing);
+	    }
+	    else 
+	    {
+	        eventName = "on" + eventName;
+	        if(useAttachEvent && window.attachEvent)
+	        {
+	            node.attachEvent(eventName, handler);
+	        }
+	        else
+	        {
+	            var evalCode = "node." + eventName + " = " + handler + ";";
+	            eval(evalCode);        
+	        }
+	    }
+	}
+}
+</script>
+<script type="text/javascript">
+	function open_window(url){	// this function is there in default.js but if we inlcude default.js, landing page bxSlider breaks somehow
+		window.open(url,"new","toolbar=1,location=1,directories=0,status=1,menubar=1,scrollbars=1,resizable=1,width=1150,height=480");
+	}
+</script>
+
+<%@ include file="/responsiveinclude/inc_responsive_cookie_message.jsp" %>
+<!-- GlobalTopNav starts -->
+<header id="GlobalTopNav">
+		<%@ include file="/include/inc_global.jsp" %>
+		<%@ include file="/include/endeca/inc_endeca_global.jsp" %>
+		<%@ include file="/responsiveinclude/inc_responsive_header.jsp" %>
+		<%@ include file="/responsiveinclude/inc_responsive_top_nav.jsp" %>
+</header><!-- GlobalTopNav ends -->		
+
+<%
+	BusinessObjectArray boArray = null;
+	ContentArray contArray = null;
+%>
+	<%@ include file="/responsiveinclude/inc_landing_central_content.jsp" %>
+	
+<%@ include file="/responsiveinclude/inc_responsive_footer.jsp" %>
+</body>	
+</html>
