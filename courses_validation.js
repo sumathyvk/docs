@@ -294,7 +294,6 @@ var vm = new Vue({
                 this.mode_to_view = 0;
                 this.get_search();
             }
-
         },
         show_learning_progress: function(){
             if((this.mode_to_view>0)&&(userid)){
