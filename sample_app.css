@@ -1,0 +1,51 @@
+/* Styles go here */
+body{
+  margin:10px;
+  font-size:14px;
+  font-family:Arial;
+  overflow:hidden;
+}
+.MovieList {
+	background:#151515;
+}
+.MovieList h2 {
+	color:#fff;
+	font-size:30px;
+	margin:20px 50px 10px;
+}
+#ListContainer ul {
+	
+  display:flex;  
+  list-style:none;
+
+}
+#ListContainer ul li {
+   list-style: none;
+   padding: 10px;
+   /* Bonus: forces no word-wrap */
+   white-space: nowrap;
+   float:left;
+}
+.Movietitle p {
+	color:#fff;
+	font-size:20px;
+	
+}
+.MovieImage img{
+	border:1px solid #F95E13;
+	
+}
+.MovieImage .btn-danger {
+    color: #fff;
+    background-color: #F95E13 !important;
+    border-color: #F95E13 !important;
+	padding: 6px 11px !important;
+    font-size: 18px !important;
+    line-height: 1.3333333 !important;
+    border-radius: 0px !important;
+    width: 100% !important;
+	display:none;
+}
+.MovieImage:hover .btn-danger {
+  display:block;  
+}
