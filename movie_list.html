@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie list and Recommendation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="styles/sample_app.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" type='text/css' rel="stylesheet">
+    <script src="https://code.angularjs.org/1.2.16/angular.js"></script>
+    <script src="scripts/sample_netflix_app.js"></script>
+  </head>
+
+  <body ng-app="App" class="MovieList">
+  <div class="container" id="ListContainer" ng-controller="CrudCtrl">     
+      <h2>My List</h2>
+	  <ul>
+		  <li ng-repeat="mylist in MyList">
+				<div class="Movietitle">
+				  <input type="text" ng-model="mylist.name" ng-show="mylist.editable">
+				  <p ng-hide="mylist.editable">{{ mylist.title }}</p> 
+				</div>
+				<div class="MovieImage">
+				  <input type="text" ng-model="mylist.img" ng-show="mylist.editable">				  
+				  <img ng-src="{{mylist.img}}"/>
+				  <button ng-click="delete($index)" type="button" class="btn btn-danger btn-lg">Delete</button>
+				</div>
+			</li>
+		</ul>        
+		<h2>Recommendation</h2>
+		<ul>
+			<li ng-repeat="recommendation in Recommendation">
+				<div class="Movietitle">			
+				  <input type="text" ng-model="recommendation.name" ng-show="recommendation.editable">
+				  <p ng-hide="recommendation.editable">{{ recommendation.title }}</p> 
+				</div>
+				<div class="MovieImage">
+					<input type="text" ng-model="recommendation.img" ng-show="recommendation.editable">
+					<!--<span ng-hide="recommendation.editable">{{ recommendation.img }}</span>-->
+					<img ng-src="{{recommendation.img}}"/>
+					<button ng-click="editRec($index)" ng-hide="recommendation.editable" type="button" class="btn btn-danger btn-lg">Add</button>
+				</div>
+			</li>
+		</ul>
+  </div>
+  </body>
+
+</html>
