@@ -1,0 +1,119 @@
+body {
+  background-color: #FFF;
+  color: #000;
+}
+
+input {
+  background-color: #1D1F20;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.nav-tabs>li>a:hover {
+  cursor: pointer;
+  background: white;
+}
+
+.img-thumbnail {
+  width: 103%;
+  padding:0px !important;
+  line-height:0px !important;
+  border:none !important;
+  border-radius:0px !important;
+}
+.media:first-child {
+    margin-top: 15px;
+}
+.label {
+  font-size: 0.5em;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #fff !important;
+    cursor: default;
+    background-color: #000 !important;
+    border: 1px solid #000 !important;
+    border-bottom-color: transparent;
+    border-radius: 0px !important;
+}
+.nav-tabs>li>a {
+    line-height: 1.42857143;
+    border: 1px solid #000 !important;
+    border-radius: 0px !important;
+    color: #000 !important;
+    background: #fff !important;
+    margin: 3px !important;
+}
+.nav-tabs {
+	border-bottom:none !important;
+}
+.media {
+	float:left;
+	width:30%;
+	border:2px solid #000;
+	margin-right:20px;
+	height:400px;
+	min-height:400px;
+}
+.media-body {
+	width:100%;
+	margin-right:10px;
+	display:block !important;
+	padding:10px 10px;
+}
+.label {
+    display: block !important;
+    padding: .2em 0em .3em !important;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1.1 !important;
+    color: #000;
+    text-align: left;
+    white-space: pre-wrap !important; 
+    vertical-align: baseline;
+    /* border-radius: .25em; */
+}
+#f1_container {
+  position: relative;
+  margin: 10px auto;
+  height: 400px;
+  z-index: 1;
+}
+#f1_container {
+  perspective: 1000;
+}
+#f1_card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+#f1_container:hover #f1_card {
+  transform: rotateY(180deg);
+  /*box-shadow: -5px 5px 5px #aaa;*/
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);  
+  color: #000;
+  text-align: center;
+  background-color: #fff;
+}
+
+/* mobile styles */
+@media screen and (max-width : 480px){
+	.media {
+		width:40%;
+		margin-right:20px;
+	}
+	.label {
+		font-size:50%;
+		font-weight:500;
+	}
+}
