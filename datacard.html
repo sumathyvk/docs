@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="FilterGrid">
+
+<head>
+  <title>Filter Grid Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div ng-app="myApp" ng-controller="TabCtrl">
+    <div class="container">
+        <div class="row row-content" ng-controller="MenuController as menuCtrl">
+           <div class="container"> 
+				<h4>Filter Grid Component</h4>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" ng-class="{active:menuCtrl.isSelected(1)}">
+                        <a ng-click="menuCtrl.select(1)" aria-controls="all items" role="tab">All items</a>
+                    </li>
+                	 <li role="presentation" value="{{ tab }}" ng-repeat="tab in tabs" ng-class="{active:menuCtrl.isSelected($index)}">
+           				 <a  ng-click="menuCtrl.select($index,tab)"  aria-controls="" role="tab">{{ tab }}</a>
+        			</li>
+    			</ul>
+				<!-- Mobile dropdown starts -->
+				
+				<!-- Mobile dropdown ends -->
+				<div id="f1_container">
+					<div class="shadow" id="f1_card">
+						<div class="tab-content front face">
+							<ul class="media-list tab-pane fade in active">
+								<li class="media" ng-repeat="item in menuCtrl.items | filter:menuCtrl.filtText">
+									<div class="media-left media-middle">
+										<a href="#">
+										<img class="media-object img-thumbnail"
+										 ng-src={{item.image}} alt="Store Product">
+										</a>
+									</div>
+									<div class="media-body">
+										<!--<h2 class="media-heading">Id: {{$index}} {{item.id}}-->
+										 <h2 class="media-heading"><span class="label">{{item.title}}</span></h2>
+										 <p>Desc:{{item.description}}</p>
+									  <!--<p><small>Featured: {{item.featured}}</small></p>-->
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="back face center">
+							 <ul class="media-list tab-pane fade in active">
+								<li class="media" ng-repeat="item in menuCtrl.items | filter:menuCtrl.filtText">
+									<div class="media-left media-middle">
+										<a href="#">
+										<img class="media-object img-thumbnail"
+										 ng-src={{item.image}} alt="Store Product">
+										</a>
+									</div>
+									<div class="media-body">
+										<!--<h2 class="media-heading">Id: {{$index}} {{item.id}}-->
+										 <h2 class="media-heading"><span class="label">{{item.title}}</span></h2>
+										 <p>Desc:{{item.description}}</p>
+									  <!--<p><small>Featured: {{item.featured}}</small></p>-->
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+
+  
+
+    <script  src="js/grid.js"></script>
+
+
+
+
+</body>
+
+</html>
