@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="cartSummaryApp">
+    <head>
+        <title>shopping cart summary</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="src/css/shopping_cart.css">
+		<link href="src/css/bootstrap.min.css" type='text/css' rel="stylesheet">
+		<script src="src/script/angular.js"></script>
+        <script src="src/script/app.js"></script>
+    </head>
+    <body>
+		<div class="container" ng-controller="CartController">
+			<h2 class="text-center">Lytmus shopping cart summary</h2>
+			<form name="saveTemplateData" action="#" ng-submit="submitForm()">
+				 <div class="row">
+					<h3 class="text-right name_info">User: {{invoice.customer.first_name}} {{invoice.customer.last_name}}</h3>
+				 </div>
+			<table class="table">
+				<tr>
+					<th>Product Image</th>
+					<th>Item</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Total</th>
+				</tr>
+				<tr ng:repeat="item in invoice.items">
+					<td><img class="img-responsive" ng:src="{{item.thumbnail}}"/></td>
+					<td class="item_title">{{item.name}}  
+						<p><a class="delete" href ng:click="removeItem($index)"><button type="button" class="btn btn-default btn-danger">
+							<span class="fa fa-shopping-cart"></span>&nbsp; X Delete</button></a>
+						</p>
+					</td>		
+					<td><input type="number" ng:model="item.quantity" ng:required class="input-mini"></td>
+					<td class="price">{{item.unit_price}}</td>
+					<td class="total_price">{{item.quantity * item.unit_price | currency}}</td>					
+				</tr>
+			</table>
+			<div class="text-right">
+				<p class="price">Total:{{total() | currency}}</p>
+				<p class="total_price">Sales Tax:{{invoice.sales_tax}}</p>
+				<p class="total_price">Grand Total:{{grandtotal() | currency}}</p>
+			</div>
+			<div class="col-xs-12">
+				<div class="btn-group pull-right">
+					<button type="submit" class="btn btn-default btn-success" ngClick="Submit"><span class="fa fa-shopping-cart"></span>&nbsp;Checkout</button>
+				</div>
+			</div>
+		</div>
+	</form>
+    </body>
+</html>
