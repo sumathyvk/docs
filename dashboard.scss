@@ -1,0 +1,184 @@
+.stratus-panel-accordian.side-panel.modal-dialog, .stratus-panel-accordian {
+
+	.panel-heading {
+		cursor: pointer;
+	}
+
+	.dark-theme & {
+		background-color: rgba($black, 0.1);
+
+		.panel-default > .panel-heading {
+      		background-color: rgba($black, 0.1);
+		}
+
+		.panel-default {
+			.panel-heading {
+				.panel-title a {
+					color: $white;
+					font-size: 14px;
+				}
+			}
+		}
+    .panel-default {
+			.panel-heading {
+				.panel-title .btn-secondary:hover {
+					background: none !important;
+          box-shadow: none !important;
+				}
+			}
+		}
+	}
+
+	.light-theme & {
+    	background-color: $white;
+
+		.panel-default > .panel-heading {
+			background-color: rgba($black, 0.1);
+		}
+
+		.panel-default {
+			.panel-heading {
+				.panel-title a {
+					color: $black;
+					font-size: 14px;
+				}
+			}
+		}
+    .panel-default {
+			.panel-heading {
+				.panel-title .btn-secondary:hover {
+					background: none !important;
+          box-shadow: none !important;
+				}
+			}
+		}
+	}
+
+	.panel-group .panel + .panel {
+		margin-top: 1px;
+	}
+
+	.panel-title {
+		a:hover, a:focus {
+			text-decoration: none;
+		}
+	}
+
+	.modal-header {
+		min-height: 20px;
+		max-height: 50px;
+		padding: 5px 5px 5px 50px;
+
+		h1 {
+			font-size: 1.2rem;
+			letter-spacing: 0.3rem;
+			text-transform: uppercase;
+		}
+	}
+
+	.modal-body {
+		margin: 0;
+		padding: 0;
+
+		.panel-group .panel + .panel {
+			margin-top: 1px;
+		}
+
+		.panel-title {
+			a:hover, a:focus {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.settingsLeftNav {
+	position: absolute;
+	bottom: 70px;
+}
+
+.dashboard-content > .page-container {
+	padding-bottom: 0;
+}
+
+.dashboard-content {
+	.section-left {
+		padding-left: 3rem;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+
+	}
+}
+
+.services, .wizard  {
+	.section {
+		.section-body {
+			margin-top: 15px;
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.dashboard-panels .table th, .dashboard-panels .table td {
+	padding: 5px 18px;
+}
+.dashboard-panels .table th.text-left, .dashboard-panels .table tbody td.text-left{
+  padding:5px 0px;
+}
+.wizard {
+	.account-support-tools {
+		position: relative;
+
+		hr {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+	}
+	.support-tools-list {
+		justify-content: center;
+
+		> * {
+			width: calc(94% / 3);
+		}
+	}
+
+	.checkoutBtn {
+		width: inherit;
+	}
+
+	.makeBlur {
+		opacity: 0.4;
+	}
+
+	img {
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+
+	img.site {
+
+	}
+
+	img.deviceidentity {
+		padding: 5px;
+	}
+
+	img.user {
+		padding: 15px;
+	}
+
+	img.segment {
+		padding: 7px;
+	}
+
+	img.check {
+		padding: 13px;
+	}
+
+	.disabledClass {
+		border: thin solid #00a9d4;
+		background-color: transparent;
+	}
+}
